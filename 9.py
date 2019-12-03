@@ -31,5 +31,21 @@ def jumpFloorII(number):
         num=2*num
     return num
 
+
+def rectCover(number):
+    '''
+    矩阵覆盖:我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。
+    请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
+    :param number:
+    :return:
+    '''
+    if number<2:
+        return number
+    result=[0,1,2]
+    for i in range(3,number+1):
+        result.append(result[i-1]+result[i-2])
+    return result[-1]
+
+
 if __name__=='__main__':
-    print(Fibonacci(5))
+    print(rectCover(8))
